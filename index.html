@@ -7,7 +7,6 @@
   <style>
     :root {
       --primary: #2563eb;
-      --primary-hover: #1d4ed8;
       --bg: #f8fafc;
       --card-bg: #ffffff;
       --text: #0f172a;
@@ -38,9 +37,9 @@
       border: 1px solid var(--border);
       border-radius: 12px;
       box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-      max-width: 600px;
+      max-width: 650px;
       width: 100%;
-      padding: 40px 30px;
+      padding: 30px 20px;
       text-align: center;
     }
 
@@ -48,69 +47,26 @@
       font-size: 24px;
       font-weight: 700;
       color: var(--primary);
-      margin-bottom: 12px;
+      margin-bottom: 8px;
     }
 
     h1 {
-      font-size: 28px;
-      margin-bottom: 10px;
+      font-size: 26px;
+      margin-bottom: 8px;
       color: var(--text);
     }
 
     p.subtitle {
-      font-size: 16px;
+      font-size: 15px;
       color: var(--text-muted);
-      margin-bottom: 30px;
+      margin-bottom: 20px;
       line-height: 1.5;
     }
 
-    .form-group {
-      text-align: left;
-      margin-bottom: 20px;
-    }
-
-    label {
-      display: block;
-      font-weight: 600;
-      font-size: 14px;
-      margin-bottom: 6px;
-      color: var(--text);
-    }
-
-    input, textarea {
+    iframe {
       width: 100%;
-      padding: 12px;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      font-size: 14px;
-      outline: none;
-      transition: border-color 0.2s;
-    }
-
-    input:focus, textarea:focus {
-      border-color: var(--primary);
-    }
-
-    textarea {
-      resize: vertical;
-      min-height: 100px;
-    }
-
-    button {
-      width: 100%;
-      padding: 14px;
-      background-color: var(--primary);
-      color: #ffffff;
       border: none;
-      border-radius: 8px;
-      font-size: 16px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background-color 0.2s;
-    }
-
-    button:hover {
-      background-color: var(--primary-hover);
+      min-height: 500px;
     }
 
     footer {
@@ -127,25 +83,9 @@
     <h1>Fit Job Checker</h1>
     <p class="subtitle">Check how well your resume matches any job description instantly using AI analysis.</p>
 
-    <!-- Connect your Tally.so embed or form endpoint below -->
-    <form id="checker-form">
-      <div class="form-group">
-        <label for="email">Your Email Address</label>
-        <input type="email" id="email" placeholder="name@example.com" required />
-      </div>
-
-      <div class="form-group">
-        <label for="job-description">Job Description</label>
-        <textarea id="job-description" placeholder="Paste the job requirements or description here..." required></textarea>
-      </div>
-
-      <div class="form-group">
-        <label for="resume">Your Resume Summary / Text</label>
-        <textarea id="resume" placeholder="Paste your resume content or skills summary..." required></textarea>
-      </div>
-
-      <button type="submit">Analyze Job Fit</button>
-    </form>
+    <!-- TALLY FORM EMBED -->
+    <iframe data-tally-src="https://tally.so/embed/BzvayQ?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0" title="Fit Job Checker"></iframe>
+    <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
   </div>
 
   <footer>
