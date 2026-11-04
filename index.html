@@ -46,17 +46,20 @@
             text-align: left;
         }
         .form-wrapper {
+            position: relative;
+            left: 0;
             width: 100%;
+            height: 700px;
             margin-top: 20px;
         }
         iframe {
-            border: none;
+            top: 0;
+            left: 0;
             width: 100%;
-            min-height: 650px;
+            height: 100%;
+            border: 0;
         }
     </style>
-    <!-- Official Tally Embed Widget Script Injection -->
-    <script src="https://tally.so/widgets/embed.js"></script>
 </head>
 <body>
 
@@ -68,17 +71,11 @@
             Stop getting rejected by ATS. Paste your resume and job description to get your exact missing keywords, custom project blueprints, and the absolute confidence you need to land your dream Data Analytics job.
         </p>
 
+        <!-- Official Tally Responsive Embed Block -->
         <div class="form-wrapper">
-            <!-- Corrected Tally Embed Handler -->
-            <iframe data-tally-src="https://tally.so" loading="lazy" title="AI OfferLetter Form"></iframe>
+            <iframe src="https://tally.so" allowfullscreen title="AI OfferLetter Form"></iframe>
         </div>
     </div>
 
-    <script>
-        // Force-load embedded templates cleanly
-        if (typeof Tally !== 'undefined') {
-            Tally.loadEmbeds();
-        }
-    </script>
 </body>
 </html>
