@@ -15,44 +15,52 @@
             min-height: 100vh;
         }
         .container {
-            max-width: 650px;
+            max-width: 600px;
             width: 100%;
             background: #ffffff;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            padding: 50px 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
             text-align: center;
             box-sizing: border-box;
         }
         h1 {
             color: #1e3a8a;
-            font-size: 32px;
-            margin-bottom: 8px;
+            font-size: 36px;
+            margin-bottom: 12px;
             font-weight: 800;
             letter-spacing: -0.5px;
         }
         h2 {
             color: #3b82f6;
-            font-size: 20px;
+            font-size: 22px;
             margin-top: 0;
-            margin-bottom: 24px;
+            margin-bottom: 28px;
             font-weight: 600;
         }
         p.description {
             color: #4b5563;
-            font-size: 15px;
+            font-size: 16px;
             line-height: 1.6;
-            margin-bottom: 32px;
-            text-align: left;
+            margin-bottom: 40px;
+            text-align: center;
         }
-        .form-wrapper {
-            width: 100%;
-            margin-top: 20px;
+        .cta-button {
+            display: inline-block;
+            background-color: #2563eb;
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: 700;
+            text-decoration: none;
+            padding: 16px 36px;
+            border-radius: 8px;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+            transition: all 0.2s ease-in-out;
         }
-        iframe {
-            border: none;
-            width: 100%;
-            min-height: 700px;
+        .cta-button:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5);
         }
     </style>
 </head>
@@ -63,13 +71,13 @@
         <h2>Unlock Your Data Analytics Offer Letter</h2>
         
         <p class="description">
-            Stop getting rejected by ATS. Paste your resume and job description to get your exact missing keywords, custom project blueprints, and the absolute confidence you need to land your dream Data Analytics job.
+            Stop getting rejected by ATS. Click the button below to paste your resume and job description. Get your exact missing keywords, custom project blueprints, and the absolute confidence you need to land your dream Data Analytics job.
         </p>
 
-        <div class="form-wrapper">
-            <!-- Official Clean Tally Connection Link -->
-            <iframe src="https://tally.so" loading="lazy" title="AI OfferLetter Form"></iframe>
-        </div>
+        <!-- Premium Live Action Button Linked to Tally -->
+        <a href="https://tally.so" target="_blank" class="cta-button">
+            Analyze Resume Now 🚀
+        </a>
     </div>
 
 </body>
