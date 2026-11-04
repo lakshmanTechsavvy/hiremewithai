@@ -55,6 +55,8 @@
             min-height: 650px;
         }
     </style>
+    <!-- Official Tally Embed Widget Script Injection -->
+    <script src="https://tally.so/widgets/embed.js"></script>
 </head>
 <body>
 
@@ -67,9 +69,16 @@
         </p>
 
         <div class="form-wrapper">
-            <iframe src="https://tally.so" loading="lazy" title="AI OfferLetter Form"></iframe>
+            <!-- Corrected Tally Embed Handler -->
+            <iframe data-tally-src="https://tally.so" loading="lazy" title="AI OfferLetter Form"></iframe>
         </div>
     </div>
 
+    <script>
+        // Force-load embedded templates cleanly
+        if (typeof Tally !== 'undefined') {
+            Tally.loadEmbeds();
+        }
+    </script>
 </body>
 </html>
