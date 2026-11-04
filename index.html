@@ -3,81 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI OfferLetter - Data Analytics Job Accelerator</title>
+    <title>AI OfferLetter - Premium Data Analytics Job Accelerator</title>
     <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: #111827;
+            --text-main: #ffffff;
+            --text-sub: #9ca3af;
+            --accent-blue: #3b82f6;
+            --accent-glow: #60a5fa;
+        }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #f9fbfd;
+            background-color: var(--bg-color);
+            color: var(--text-main);
             margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+        /* Subtle AI Animated Background Glows */
+        body::before {
+            content: "";
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(45deg, #1e40af, #3b82f6);
+            filter: blur(150px);
+            top: -10%,;
+            left: -10%,;
+            z-index: 0;
+            opacity: 0.5;
+        }
+        body::after {
+            content: "";
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(45deg, #4f46e5, #06b6d4);
+            filter: blur(150px);
+            bottom: -10%,;
+            right: -10%,;
+            z-index: 0;
+            opacity: 0.4;
         }
         .container {
             max-width: 600px;
-            width: 100%;
-            background: #ffffff;
-            padding: 50px 40px;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+            width: 90%;
+            background: var(--card-bg);
+            padding: 60px 40px;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
             text-align: center;
             box-sizing: border-box;
+            z-index: 10;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+        .badge {
+            display: inline-block;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            color: #60a5fa;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            padding: 6px 16px;
+            border-radius: 100px;
+            margin-bottom: 24px;
+            letter-spacing: 1px;
         }
         h1 {
-            color: #1e3a8a;
-            font-size: 36px;
+            color: var(--text-main);
+            font-size: 42px;
             margin-bottom: 12px;
             font-weight: 800;
-            letter-spacing: -0.5px;
+            letter-spacing: -1px;
+            background: linear-gradient(to right, #ffffff, #9ca3af);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         h2 {
-            color: #3b82f6;
+            color: var(--accent-glow);
             font-size: 22px;
             margin-top: 0;
-            margin-bottom: 28px;
+            margin-bottom: 32px;
             font-weight: 600;
+            letter-spacing: -0.5px;
         }
         p.description {
-            color: #4b5563;
+            color: var(--text-sub);
             font-size: 16px;
-            line-height: 1.6;
-            margin-bottom: 40px;
+            line-height: 1.7;
+            margin-bottom: 48px;
             text-align: center;
         }
         .cta-button {
             display: inline-block;
-            background-color: #2563eb;
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
             color: #ffffff;
             font-size: 18px;
             font-weight: 700;
             text-decoration: none;
-            padding: 16px 36px;
-            border-radius: 8px;
-            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
-            transition: all 0.2s ease-in-out;
+            padding: 18px 44px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(37, 99, 235, 0.3);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
         .cta-button:hover {
-            background-color: #1d4ed8;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(37, 99, 235, 0.5), 0 0 15px rgba(96, 165, 250, 0.3);
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+        }
+        .footer-note {
+            margin-top: 32px;
+            font-size: 12px;
+            color: #4b5563;
+            letter-spacing: 0.5px;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
+        <!-- AI Premium Badge -->
+        <div class="badge">✦ Next-Gen ATS Optimization</div>
+        
+        <!-- Luxury Typography -->
         <h1>AI OfferLetter</h1>
         <h2>Unlock Your Data Analytics Offer Letter</h2>
         
         <p class="description">
-            Stop getting rejected by ATS. Click the button below to paste your resume and job description. Get your exact missing keywords, custom project blueprints, and the absolute confidence you need to land your dream Data Analytics job.
+            Stop getting rejected by automated ATS filters. Click below to paste your resume and target job description. Instantly unlock hidden keyword injectors, custom project blueprints, and the absolute confidence required to dominate your interviews.
         </p>
 
-        <!-- Premium Live Action Button Linked to Tally -->
+        <!-- Premium High-Converting Action Button -->
         <a href="https://tally.so" target="_blank" class="cta-button">
-            Analyze Resume Now 🚀
+            Analyze Your Resume Now 🚀
         </a>
+
+        <div class="footer-note">
+            Secure Enterprise Processing • Zero Data Retention Policy
+        </div>
     </div>
 
 </body>
