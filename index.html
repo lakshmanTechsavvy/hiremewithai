@@ -3,153 +3,220 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI OfferLetter - Premium Data Analytics Job Accelerator</title>
+    <title>AI OfferLetter - Free Instant Feedback on Your Data Analytics Resume</title>
+    
+    <!-- Professional Dynamic Favicon Hook -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://w3.org viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎯</text></svg>">
+
     <style>
         :root {
-            --bg-color: #0b0f19;
-            --card-bg: #111827;
+            --bg-color: #060913;
+            --card-bg: #0f172a;
             --text-main: #ffffff;
-            --text-sub: #9ca3af;
-            --accent-blue: #3b82f6;
-            --accent-glow: #60a5fa;
+            --text-sub: #94a3b8;
+            --accent-blue: #2563eb;
+            --accent-glow: #38bdf8;
+            --border-color: rgba(255, 255, 255, 0.08);
         }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-main);
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        /* Top Navigation Bar */
+        header {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            min-height: 100vh;
-            overflow: hidden;
+            padding: 20px 8%;
+            border-bottom: 1px solid var(--border-color);
+            background: rgba(6, 9, 19, 0.8);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+        .nav-links a {
+            color: var(--text-sub);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            margin-left: 24px;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--text-main); }
+        
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 80px 4% 60px 4%;
+            max-width: 900px;
+            margin: 0 auto;
             position: relative;
         }
-        /* Subtle AI Animated Background Glows */
-        body::before {
-            content: "";
-            position: absolute;
-            width: 400px;
-            height: 400px;
-            background: linear-gradient(45deg, #1e40af, #3b82f6);
-            filter: blur(150px);
-            top: -10%,;
-            left: -10%,;
-            z-index: 0;
-            opacity: 0.5;
-        }
-        body::after {
-            content: "";
-            position: absolute;
-            width: 400px;
-            height: 400px;
-            background: linear-gradient(45deg, #4f46e5, #06b6d4);
-            filter: blur(150px);
-            bottom: -10%,;
-            right: -10%,;
-            z-index: 0;
-            opacity: 0.4;
-        }
-        .container {
-            max-width: 600px;
-            width: 90%;
-            background: var(--card-bg);
-            padding: 60px 40px;
-            border-radius: 24px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(20px);
-            text-align: center;
-            box-sizing: border-box;
-            z-index: 10;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-        }
         .badge {
-            display: inline-block;
-            background: rgba(59, 130, 246, 0.1);
-            border: 1px solid rgba(59, 130, 246, 0.3);
-            color: #60a5fa;
+            display: inline-flex;
+            align-items: center;
+            background: rgba(56, 189, 248, 0.08);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            color: var(--accent-glow);
             font-size: 12px;
             font-weight: 600;
-            text-transform: uppercase;
             padding: 6px 16px;
             border-radius: 100px;
             margin-bottom: 24px;
-            letter-spacing: 1px;
         }
         h1 {
-            color: var(--text-main);
-            font-size: 42px;
-            margin-bottom: 12px;
+            font-size: 48px;
             font-weight: 800;
-            letter-spacing: -1px;
-            background: linear-gradient(to right, #ffffff, #9ca3af);
+            line-height: 1.15;
+            margin: 0 0 20px 0;
+            background: linear-gradient(to right, #ffffff, #cbd5e1);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        h2 {
-            color: var(--accent-glow);
-            font-size: 22px;
-            margin-top: 0;
-            margin-bottom: 32px;
-            font-weight: 600;
-            letter-spacing: -0.5px;
+        h1 span {
+            background: linear-gradient(to right, #38bdf8, #2563eb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-        p.description {
+        .hero p {
+            font-size: 18px;
             color: var(--text-sub);
-            font-size: 16px;
-            line-height: 1.7;
-            margin-bottom: 48px;
-            text-align: center;
+            line-height: 1.6;
+            max-width: 680px;
+            margin: 0 auto 40px auto;
         }
         .cta-button {
             display: inline-block;
             background: linear-gradient(135deg, #2563eb, #1d4ed8);
             color: #ffffff;
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 700;
             text-decoration: none;
-            padding: 18px 44px;
-            border-radius: 12px;
-            box-shadow: 0 8px 24px rgba(37, 99, 235, 0.3);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 16px 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.3);
+            transition: all 0.2s ease-in-out;
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
         .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(37, 99, 235, 0.5), 0 0 15px rgba(96, 165, 250, 0.3);
-            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(37, 99, 235, 0.5);
         }
-        .footer-note {
-            margin-top: 32px;
-            font-size: 12px;
-            color: #4b5563;
-            letter-spacing: 0.5px;
+
+        /* Trust / Social Proof Section */
+        .trust-section {
+            text-align: center;
+            padding: 20px 4% 60px 4%;
+            font-size: 13px;
+            color: #475569;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        /* Features / Categories Section */
+        .features-container {
+            max-width: 1040px;
+            margin: 0 auto;
+            padding: 60px 4% 100px 4%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 100fr));
+            gap: 24px;
+        }
+        .feature-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 40px 30px;
+            border-radius: 16px;
+            transition: border 0.3s, transform 0.3s;
+        }
+        .feature-card:hover {
+            border-color: rgba(56, 189, 248, 0.3);
+            transform: translateY(-4px);
+        }
+        .icon-box {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        .feature-card h3 {
+            font-size: 20px;
+            margin: 0 0 12px 0;
+            color: var(--text-main);
+        }
+        .feature-card p {
+            font-size: 14px;
+            color: var(--text-sub);
+            line-height: 1.6;
+            margin: 0;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <!-- AI Premium Badge -->
-        <div class="badge">✦ Next-Gen ATS Optimization</div>
-        
-        <!-- Luxury Typography -->
-        <h1>AI OfferLetter</h1>
-        <h2>Unlock Your Data Analytics Offer Letter</h2>
-        
-        <p class="description">
-            Stop getting rejected by automated ATS filters. Click below to paste your resume and target job description. Instantly unlock hidden keyword injectors, custom project blueprints, and the absolute confidence required to dominate your interviews.
+    <!-- Professional Header & Branding -->
+    <header>
+        <a href="#" class="logo">🎯 AI OfferLetter</a>
+        <nav class="nav-links">
+            <a href="#features">Products</a>
+            <a href="https://tally.so" target="_blank">Analyze Now</a>
+        </nav>
+    </header>
+
+    <!-- Main Hero Accelerator Section -->
+    <section class="hero">
+        <div class="badge">✦ Designed for Data Analysts & Engineers</div>
+        <h1>Improve Your Resume and Land <span>Your Offer Letter</span></h1>
+        <p>
+            Our AI-powered platform instantly gives you tailored feedback on your resume based on real recruiter checklists. Identify skill gaps, generate custom projects, and beat the ATS software cleanly.
         </p>
-
-        <!-- Premium High-Converting Action Button -->
         <a href="https://tally.so" target="_blank" class="cta-button">
-            Analyze Your Resume Now 🚀
+            Score My Resume Instantly &raquo;
         </a>
+    </section>
 
-        <div class="footer-note">
-            Secure Enterprise Processing • Zero Data Retention Policy
-        </div>
+    <!-- Social Proof Section -->
+    <div class="trust-section">
+        Trusted by Data Professionals Worldwide • Zero Data Retention Policy
     </div>
+
+    <!-- Product Pillars & Categories (Like ResumeWorded) -->
+    <section class="features-container" id="features">
+        
+        <!-- Pillar 1: ATS Resume Review -->
+        <div class="feature-card">
+            <div class="icon-box">📊</div>
+            <h3>Score My Resume</h3>
+            <p>Upload your resume to get an instant ATS compatibility score out of 100. Identify missing critical metrics, weak action verbs, and structural formatting flaws instantly.</p>
+        </div>
+
+        <!-- Pillar 2: Magic Project Builder -->
+        <div class="feature-card">
+            <div class="icon-box">🚀</div>
+            <h3>The Magic Project Builder</h3>
+            <p>Automatically scans your profile for missing tech stacks like Power BI, SQL, or Python. Instantly get custom live-dataset blueprints to bridge your portfolio gap.</p>
+        </div>
+
+        <!-- Pillar 3: Keyword Targeter -->
+        <div class="feature-card">
+            <div class="icon-box">🎯</div>
+            <h3>ATS Keyword Injector</h3>
+            <p>Paste any target job description. Our scanner isolates heavy recruiter keywords (EDA, Cohort Analysis, Window Functions) and guides you exactly where to place them naturally.</p>
+        </div>
+
+    </section>
 
 </body>
 </html>
