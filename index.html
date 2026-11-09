@@ -5,146 +5,258 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI OfferLetter | Instant Resume Score & Career Blueprint - hiremewithai.com</title>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://w3.org viewBox=%220 0 100 100%22><linearGradient id=%22g%22 x1=%220%%22 y1=%220%%22 x2=%22100%%22 y2=%22100%%22><stop offset=%220%%22 stop-color=%22%232563eb%22/><stop offset=%22100%%22 stop-color=%22%2306b6d4%22/></linearGradient><rect width=%22100%22 height=%22100%22 rx=%2224%22 fill=%22url(%23g)%22/><text x=%2250%%22 y=%2268%%22 font-size=%2265%22 font-weight=%22900%22 fill=%22%23ffffff%22 font-family=%22system-ui, -apple-system, sans-serif%22 text-anchor=%22middle%22>H</text></svg>">
-    <script src="https://tailwindcss.com"></script>
-    <link href="https://googleapis.com" rel="stylesheet">
     <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: #ffffff;
             color: #0f172a;
+            line-height: 1.6;
         }
-        .soft-shadow {
+        a { text-decoration: none; }
+        
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 20px;
+            font-weight: 800;
+            color: #0f172a;
+        }
+        .logo-box {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: #2563eb;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+        }
+        .logo span { color: #2563eb; }
+        .nav-links { display: flex; gap: 28px; }
+        .nav-links a { color: #475569; font-size: 14px; font-weight: 600; }
+        .nav-links a:hover { color: #2563eb; }
+        .btn-sm {
+            background: #2563eb;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 700;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+        .btn-sm:hover { background: #1d4ed8; }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(to bottom, #f8fafc, #ffffff);
+            border-bottom: 1px solid #f1f5f9;
+            padding: 70px 24px 90px 24px;
+        }
+        .hero-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+        .badge {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 50px;
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            color: #1d4ed8;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-size: 46px;
+            font-weight: 800;
+            line-height: 1.15;
+            color: #0f172a;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+        h1 span { color: #2563eb; }
+        .hero-desc {
+            font-size: 17px;
+            color: #475569;
+            margin-bottom: 32px;
+        }
+        .btn-primary {
+            display: inline-block;
+            background: #2563eb;
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: 700;
+            padding: 16px 32px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.25);
+            transition: transform 0.2s, background 0.2s;
+        }
+        .btn-primary:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+        .trust-list {
+            margin-top: 16px;
+            font-size: 13px;
+            color: #64748b;
+            font-weight: 600;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        /* Preview Card */
+        .preview-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            padding: 32px;
             box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.08);
+        }
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #f1f5f9;
+            padding-bottom: 18px;
+            margin-bottom: 22px;
+        }
+        .card-sub { font-size: 11px; font-weight: 700; color: #94a3b8; text-transform: uppercase; }
+        .card-title { font-size: 18px; font-weight: 800; color: #0f172a; }
+        .score-pill {
+            background: #ecfdf5;
+            border: 1px solid #a7f3d0;
+            color: #047857;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 6px 12px;
+            border-radius: 8px;
+        }
+        .box-before {
+            background: #fff1f2;
+            border: 1px solid #ffe4e6;
+            padding: 16px;
+            border-radius: 12px;
+            margin-bottom: 16px;
+        }
+        .box-after {
+            background: #ecfdf5;
+            border: 1px solid #a7f3d0;
+            padding: 16px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+        .tag-red { font-size: 11px; font-weight: 800; color: #e11d48; text-transform: uppercase; display: block; margin-bottom: 4px; }
+        .tag-green { font-size: 11px; font-weight: 800; color: #059669; text-transform: uppercase; display: block; margin-bottom: 4px; }
+        .box-text { font-size: 14px; color: #334155; }
+        .gaps-label { font-size: 12px; font-weight: 700; color: #64748b; margin-bottom: 8px; display: block; }
+        .pills-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+        .pill-amber { background: #fffbeb; color: #b45309; border: 1px solid #fde68a; padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; }
+        .pill-blue { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; }
+        .btn-dark {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background: #0f172a;
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 700;
+            padding: 14px;
+            border-radius: 10px;
+        }
+        .btn-dark:hover { background: #1e293b; }
+
+        /* Toolkit Section */
+        .toolkit { padding: 80px 24px; max-width: 1200px; margin: 0 auto; }
+        .section-head { text-align: center; max-width: 650px; margin: 0 auto 56px auto; }
+        .section-tag { color: #2563eb; font-size: 13px; font-weight: 800; text-transform: uppercase; }
+        .section-title { font-size: 34px; font-weight: 800; color: #0f172a; margin: 8px 0 12px 0; }
+        .section-desc { color: #475569; font-size: 16px; }
+        .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+        .f-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 32px;
+            border-radius: 16px;
+        }
+        .f-num {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            background: #dbeafe;
+            color: #1d4ed8;
+            font-weight: 800;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .f-card h3 { font-size: 19px; font-weight: 800; margin-bottom: 10px; color: #0f172a; }
+        .f-card p { font-size: 14px; color: #475569; }
+
+        /* CTA Banner */
+        .cta-banner { background: #0f172a; color: #ffffff; text-align: center; padding: 70px 24px; }
+        .cta-banner h2 { font-size: 34px; font-weight: 800; margin-bottom: 14px; }
+        .cta-banner p { color: #cbd5e1; font-size: 17px; max-width: 600px; margin: 0 auto 28px auto; }
+
+        /* Footer */
+        footer { padding: 36px 24px; text-align: center; border-top: 1px solid #e2e8f0; color: #64748b; font-size: 14px; }
+
+        @media (max-width: 900px) {
+            .hero-grid, .cards-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            h1 { font-size: 36px; }
         }
     </style>
 </head>
-<body class="antialiased selection:bg-blue-100 selection:text-blue-900">
+<body>
 
-    <!-- Clean White Navigation Header -->
-    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="#" class="flex items-center gap-2.5">
-                <div class="w-9 h-9 rounded-xl bg-blue-600 flex items-center justify-center text-white font-extrabold text-lg shadow-sm">H</div>
-                <span class="text-xl font-extrabold tracking-tight text-slate-900">hiremewithai<span class="text-blue-600">.com</span></span>
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-box">H</div>
+                <div>hiremewithai<span>.com</span></div>
             </a>
-            
-            <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-600">
-                <a href="#toolkit" class="hover:text-blue-600 transition">The Toolkit</a>
-                <a href="#how-it-works" class="hover:text-blue-600 transition">How It Works</a>
-                <a href="#reviews" class="hover:text-blue-600 transition">Success Stories</a>
+            <nav class="nav-links">
+                <a href="#toolkit">The Toolkit</a>
+                <a href="#how-it-works">How It Works</a>
             </nav>
-
-            <div class="flex items-center gap-4">
-                <a href="https://tally.so" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold px-5 py-2.5 rounded-lg transition shadow-sm">
-                    Score My Resume Free
-                </a>
-            </div>
+            <a href="https://tally.so" target="_blank" class="btn-sm">Score My Resume Free</a>
         </div>
     </header>
 
-    <!-- High-Trust Editorial Hero Section -->
-    <section class="pt-16 pb-24 px-6 bg-gradient-to-b from-slate-50 to-white border-b border-slate-100">
-        <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center">
-            
-            <!-- Left Content Column -->
-            <div class="lg:col-span-6 space-y-6">
-                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/70 text-blue-700 text-xs font-bold uppercase tracking-wide">
-                    <span>★ Rated 4.9/5 by Job Seekers</span>
-                </div>
-                
-                <h1 class="text-4xl sm:text-5xl lg:text-[52px] font-extrabold text-slate-900 leading-[1.15] tracking-tight">
-                    Improve your resume and land <span class="text-blue-600">5x more interviews.</span>
-                </h1>
-                
-                <p class="text-lg text-slate-600 leading-relaxed">
+    <section class="hero">
+        <div class="hero-grid">
+            <div>
+                <div class="badge">★ Rated 4.9/5 by Job Seekers</div>
+                <h1>Improve your resume and land <span>5x more interviews.</span></h1>
+                <p class="hero-desc">
                     Designed around real recruiter screening criteria. Paste your resume and target job description to get an instant match score, uncover missing keywords, and receive a custom project blueprint.
-                </p>
-
-                <!-- Action Box -->
-                <div class="pt-2 space-y-3">
-                    <a href="https://tally.so" target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold text-base px-8 py-4 rounded-xl shadow-lg shadow-blue-600/20 transition transform hover:-translate-y-0.5">
-                        <span>Analyze My Resume Instantly</span>
-                        <span>→</span>
-                    </a>
-                    <p class="text-xs text-slate-500 font-medium flex items-center gap-4 pt-1">
-                        <span>✓ Free instant audit</span>
-                        <span>✓ Works for Tech, Marketing & Analytics</span>
-                        <span>✓ 100% Private</span>
-                    </p>
-                </div>
-            </div>
-
-            <!-- Right Interactive Score Preview Card (Original Clean Layout) -->
-            <div class="lg:col-span-6">
-                <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 soft-shadow relative">
-                    <div class="flex items-center justify-between border-b border-slate-100 pb-5 mb-6">
-                        <div>
-                            <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Live Diagnostic Preview</span>
-                            <h3 class="text-lg font-bold text-slate-900 mt-0.5">Candidate Readiness Report</h3>
-                        </div>
-                        <div class="flex items-center gap-2 bg-emerald-50 border border-emerald-200 px-3.5 py-1.5 rounded-lg">
-                            <span class="text-xs font-bold text-emerald-700">43% → 92% Potential</span>
-                        </div>
-                    </div>
-
-                    <!-- Before & After Comparison Visual -->
-                    <div class="space-y-4">
-                        <div class="p-4 rounded-xl bg-rose-50/60 border border-rose-100">
-                            <div class="flex items-center justify-between mb-1">
-                                <span class="text-xs font-bold text-rose-600 uppercase">Before: Generic Resume Line</span>
-                                <span class="text-xs font-semibold text-rose-500">Weak Impact</span>
-                            </div>
-                            <p class="text-sm text-slate-600 italic">"Responsible for running marketing ads and tracking website traffic for clients."</p>
-                        </div>
-
-                        <div class="p-4 rounded-xl bg-emerald-50/70 border border-emerald-200">
-                            <div class="flex items-center justify-between mb-1">
-                                <span class="text-xs font-bold text-emerald-700 uppercase">After: AI OfferLetter Blueprint</span>
-                                <span class="text-xs font-bold text-emerald-600">✓ Recruiter Approved</span>
-                            </div>
-                            <p class="text-sm text-slate-800 font-medium">"Engineered targeted Google Ads & GTM conversion tracking funnels, achieving a 13.95% CTR and lowering CPL by 28%."</p>
-                        </div>
-
-                        <!-- Skill Gap Pills -->
-                        <div class="pt-2">
-                            <span class="text-xs font-bold text-slate-500 block mb-2">Detected Keyword & Skill Gaps:</span>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="px-2.5 py-1 bg-amber-50 text-amber-700 border border-amber-200 rounded-md text-xs font-semibold">+ Looker Studio</span>
-                                <span class="px-2.5 py-1 bg-amber-50 text-amber-700 border border-amber-200 rounded-md text-xs font-semibold">+ A/B Testing</span>
-                                <span class="px-2.5 py-1 bg-blue-50 text-blue-700 border border-blue-200 rounded-md text-xs font-semibold">✓ Google Tag Manager</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="mt-6 pt-5 border-t border-slate-100">
-                        <a href="https://tally.so" target="_blank" class="w-full block text-center bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm py-3.5 rounded-xl transition">
-                            Get Your Personalized Score & Action Plan →
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- The Complete Toolkit Section -->
-    <section id="toolkit" class="py-24 px-6 bg-white">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center max-w-2xl mx-auto mb-16">
-                <span class="text-blue-600 font-bold text-sm uppercase tracking-wider">The Career Toolkit</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2">Real scores, backed by real hiring criteria</h2>
-                <p class="text-slate-600 mt-3 text-base">We don't just give generic advice. Our engine compares your exact experience against the job description you want.</p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Feature 1 -->
-                <div class="p-8 rounded-2xl border border-slate-200/90 hover:border-blue-300 transition bg-slate-50/40">
-                    <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center font-extrabold text-xl mb-6">01</div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">Weighted Match Scoring</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">
-                        Evaluates your profile across Primary Skills, Experience Tenure, Domain Fit, and Tools to give you an honest, transparent score out of 100.
-                    </p>
-                </div>
-
-                <!-- Feature 2 -->
-                <div class="p-8 rounded-2xl border border-slate-200/90 hover:border-blue-300 transition bg-slate-50/40">
