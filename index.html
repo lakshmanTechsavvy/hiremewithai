@@ -1,417 +1,267 @@
 <!DOCTYPE html>
-<html lang="en" class="dark scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Offer Letter | hiremewithai.com</title>
+    <title>DataRole AI — Land Your Dream Role with a Guide Who Cares</title>
     <!-- Tailwind CSS CDN -->
-    <!-- Tailwind CSS CDN -->
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://w3.org viewBox=%220 0 100 100%22><linearGradient id=%22g%22 x1=%220%%22 y1=%220%%22 x2=%22100%%22 y2=%22100%%22><stop offset=%220%%22 stop-color=%22%232563eb%22/><stop offset=%22100%%22 stop-color=%22%2306b6d4%22/></linearGradient><rect width=%22100%22 height=%22100%22 rx=%2224%22 fill=%22url(%23g)%22/><text x=%2250%%22 y=%2268%%22 font-size=%2265%22 font-weight=%22900%22 fill=%22%23ffffff%22 font-family=%22system-ui, -apple-system, sans-serif%22 text-anchor=%22middle%22>H</text></svg>">
- <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
-            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
-                        navy: {
-                            950: '#060911',
-                            900: '#090D16',
-                            850: '#0D1322',
-                            800: '#121A2D',
-                            700: '#1C273E',
-                        },
-                        cyan: {
-                            400: '#38BDF8',
-                            300: '#7DD3FC',
-                            accent: '#00F0FF',
-                        }
+                        canvas: '#F8FAFC',
+                        slateDark: '#0F172A',
+                        terracotta: '#EA580C',
+                        terracottaHover: '#C2410C',
+                        cardBorder: 'rgba(0, 0, 0, 0.08)',
                     },
                     fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Font Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #060911;
-            color: #F3F4F6;
-            overflow-x: hidden;
-        }
-
-        .glass-panel {
-            background: rgba(13, 19, 34, 0.75);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .glow-cyan {
-            box-shadow: 0 0 25px -5px rgba(0, 240, 255, 0.35);
-        }
-
-        .glow-bg {
-            position: absolute;
-            top: -120px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 700px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(0, 240, 255, 0.12) 0%, rgba(14, 165, 233, 0.05) 45%, transparent 70%);
-            filter: blur(80px);
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .circle-chart-circle {
-            transition: stroke-dasharray 1s ease-in-out;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body class="relative min-h-screen antialiased selection:bg-cyan-500 selection:text-navy-950">
+<body class="bg-canvas text-slateDark font-sans antialiased selection:bg-terracotta selection:text-white">
 
-    <!-- Top Glow Effect -->
-    <div class="glow-bg"></div>
-
-    <!-- Navigation Bar -->
-    <header class="sticky top-0 z-50 glass-panel border-b border-gray-800/80">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <!-- Logo -->
-            <a href="#" class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl bg-cyan-accent text-navy-950 flex items-center justify-center font-bold text-xl shadow-[0_0_15px_rgba(0,240,255,0.4)]">
-                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+    <!-- TOP NAVIGATION BAR -->
+    <header class="sticky top-0 z-50 bg-canvas/80 backdrop-blur-md border-b border-cardBorder">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <div class="flex items-center space-x-2 cursor-pointer">
+                <div class="w-8 h-8 rounded-lg bg-terracotta flex items-center justify-center text-white font-bold text-lg shadow-sm">
+                    D
                 </div>
-                <div class="flex flex-col">
-                    <span class="font-extrabold text-lg text-white tracking-tight flex items-center gap-1">
-                        hiremewithai
-                    </span>
-                    <span class="text-[11px] text-gray-400 font-medium tracking-wide">AI Offer Letter Platform</span>
-                </div>
-            </a>
+                <span class="text-xl font-bold tracking-tight">DataRole <span class="text-terracotta">AI</span></span>
+            </div>
 
             <!-- Nav Links -->
-            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
-                <a href="#features" class="hover:text-cyan-accent transition-colors">Features</a>
-                <a href="#how-it-works" class="hover:text-cyan-accent transition-colors">How It Works</a>
-                <a href="#demo" class="hover:text-cyan-accent transition-colors">Live Demo</a>
-                <a href="#pricing" class="hover:text-cyan-accent transition-colors">Pricing</a>
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-600">
+                <a href="#features" class="hover:text-slateDark transition">Features</a>
+                <a href="#github-internships" class="hover:text-slateDark transition">GitHub Internships</a>
+                <a href="#founder" class="hover:text-slateDark transition">Our Story</a>
             </nav>
 
-            <!-- Buttons -->
-                        <a href="https://tally.so/r/BzvayQ" target="_blank" class="text-sm font-semibold text-gray-300 hover:text-white transition-colors">Log In</a>
-<a href="https://tally.so/r/BzvayQ" target="_blank" class="px-4 py-2 rounded-xl border border-cyan-400/40 text-cyan-accent hover:bg-cyan-accent/10 font-semibold text-sm transition-all flex items-center gap-1.5">
-    <i class="fa-solid fa-bolt text-xs"></i> Try Analyzer
-</a>
-            </div>
-        </div>
-    </header>
-
-            </div>
-        </div>
-    </header>
-
+            <!-- CTA -->
+            <div class="flex items-center space-x-4">
+                <a href="#analyzer" class="hidden sm:inline-block text-sm font-medium text-slate-600 hover:text-slateDark">Log in</a>
+                <a href="#analyzer" class="bg-terracotta hover:bg-terracottaHover text-white text-sm font-medium px-4 py-2 rounded-lg shadow-sm transition">
+                    Try Free Analyzer
                 </a>
             </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <main class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-20">
-        
-        <!-- Badge & Text -->
-        <div class="text-center max-w-3xl mx-auto mb-10">
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-panel border border-cyan-400/30 text-cyan-accent text-xs font-semibold mb-6">
-                <span>✨ AI-Powered Resume Audit • Trusted by 120,000+ Candidates</span>
+    <!-- HERO SECTION -->
+    <section class="pt-16 pb-20 px-6">
+        <div class="max-w-5xl mx-auto text-center">
+            <!-- Pill Badge -->
+            <div class="inline-flex items-center space-x-2 bg-orange-50 border border-orange-200 text-terracotta text-xs font-medium px-3 py-1 rounded-full mb-6">
+                <span>✨ Powered by Smart ATS Engine & GitHub Open-Source Matching</span>
             </div>
 
-            <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-tight mb-5">
-                Land Your Dream Role with <br/>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-cyan-accent to-sky-200">AI Offer Letter</span>
+            <!-- Headline -->
+            <h1 class="text-4xl sm:text-6xl font-bold tracking-tight text-slateDark max-w-3xl mx-auto leading-tight">
+                Land Your Dream Role with a Guide Who Cares.
             </h1>
 
-            <p class="text-base sm:text-lg text-gray-300 leading-relaxed max-w-2xl mx-auto mb-8">
-                Instantly scan your resume against real recruiter checklists, identify skill gaps, inject ATS-friendly keywords, and generate custom portfolio projects to guarantee interviews.
+            <!-- Sub-headline -->
+            <p class="mt-6 text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
+                Scan your resume against real recruiter checklists, fix skill gaps, and instantly get matched with free open-source internships to build real experience.
             </p>
 
             <!-- CTA Buttons -->
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-5">
-               <a href="https://tally.so/r/BzvayQ" target="_blank" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-cyan-accent text-navy-950 font-bold text-sm glow-cyan hover:brightness-110 active:scale-95 transition-all flex items-center justify-center gap-2">
-    <span>Scan My Resume Now</span>
-    <span>→</span>
-</a>
+            <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#analyzer" class="w-full sm:w-auto bg-terracotta hover:bg-terracottaHover text-white font-medium px-8 py-3.5 rounded-xl shadow-md transition flex items-center justify-center space-x-2">
                     <span>Scan My Resume Now</span>
-                    <i class="fa-solid fa-arrow-right"></i>
-                </button>
-                <button onclick="scrollToDemo()" class="w-full sm:w-auto px-6 py-3.5 rounded-xl border border-gray-700 bg-navy-850 text-gray-200 font-semibold text-sm hover:border-gray-500 hover:text-white transition-all flex items-center justify-center gap-2">
-                    <i class="fa-solid fa-circle-play text-cyan-accent"></i>
-                    <span>Watch 1-Min Demo</span>
-                </button>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                </a>
+                <a href="#github-internships" class="w-full sm:w-auto bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 font-medium px-8 py-3.5 rounded-xl transition flex items-center justify-center space-x-2 shadow-sm">
+                    <span>Explore GitHub Internships</span>
+                </a>
             </div>
 
-            <p class="text-xs text-gray-400">
-                ✔ 100% Free Resume Audit • No Credit Card Required • Trusted by 120k+
-            </p>
+            <!-- Micro-copy -->
+            <p class="mt-4 text-xs text-slate-500">No credit card required • 100% privacy protected</p>
         </div>
 
-        <!-- Dashboard App Window Preview (Centerpiece) -->
-        <div id="demo" class="max-w-4xl mx-auto">
-            <div class="glass-panel rounded-2xl border border-gray-800 p-4 sm:p-6 shadow-2xl">
-                <!-- Mac Topbar -->
-                <div class="flex items-center justify-between pb-4 mb-6 border-b border-gray-800">
-                    <div class="flex items-center gap-2">
-                        <span class="w-3 h-3 rounded-full bg-red-500/80"></span>
-                        <span class="w-3 h-3 rounded-full bg-yellow-500/80"></span>
-                        <span class="w-3 h-3 rounded-full bg-green-500/80"></span>
-                    </div>
-                    <div class="px-4 py-1 rounded-md bg-navy-950 border border-gray-800 text-xs text-gray-400 font-mono">
-                        hiremewithai.com
-                    </div>
-                    <div class="text-xs text-cyan-accent font-mono">v2.4 ATS Engine</div>
+        <!-- INTERACTIVE HERO PLAYGROUND PREVIEW -->
+        <div id="analyzer" class="max-w-4xl mx-auto mt-16 bg-white border border-cardBorder rounded-2xl p-6 sm:p-8 shadow-xl">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Dropzone Box -->
+                <div class="border-2 border-dashed border-slate-200 rounded-xl p-8 flex flex-col items-center justify-center text-center hover:border-terracotta transition cursor-pointer bg-slate-50/50">
+                    <svg class="w-10 h-10 text-slate-400 mb-3" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"/></svg>
+                    <p class="text-sm font-medium text-slate-700">Drag and drop your resume here</p>
+                    <p class="text-xs text-slate-400 mt-1">Supports PDF, DOCX (Max 5MB)</p>
+                    <button class="mt-4 bg-white border border-slate-300 text-slate-700 text-xs font-medium px-4 py-2 rounded-lg shadow-sm hover:bg-slate-50 transition">Browse File</button>
                 </div>
 
-                <!-- Main Window Content -->
-                <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
-                    <!-- Left: Upload Container -->
-                    <div class="md:col-span-6 flex flex-col justify-between">
-                        <div id="dropzone" class="border-2 border-dashed border-cyan-500/40 hover:border-cyan-accent rounded-xl p-6 text-center bg-navy-950/60 min-h-[210px] flex flex-col items-center justify-center cursor-pointer transition-all">
-                            <i class="fa-solid fa-cloud-arrow-up text-3xl text-cyan-accent mb-3"></i>
-                            <p class="text-sm font-medium text-white mb-1">Drag and drop your resume here</p>
-                            <p class="text-xs text-gray-400 mb-4">PDF, DOCX, TXT</p>
-                            <label class="px-5 py-2 rounded-lg bg-sky-600 hover:bg-sky-500 text-white text-xs font-bold uppercase tracking-wider cursor-pointer transition-colors shadow">
-                                BROWSE FILE
-                                <input type="file" id="fileInput" class="hidden" accept=".pdf,.docx,.txt" onchange="handleFileUpload(event)">
-                            </label>
-                        </div>
-
-                        <!-- Sample Selector Row -->
-                        <div class="mt-4">
-                            <span class="text-xs text-gray-400 block mb-2">Or try a sample profile:</span>
-                            <div class="flex flex-wrap gap-2">
-                                <button onclick="setProfile('data')" class="px-3 py-1.5 rounded-lg bg-navy-800 border border-gray-700 hover:border-cyan-accent text-xs text-gray-300 transition-all flex items-center gap-1.5">
-                                    <i class="fa-solid fa-chart-pie text-cyan-accent"></i> Data Analyst
-                                </button>
-                                <button onclick="setProfile('swe')" class="px-3 py-1.5 rounded-lg bg-navy-800 border border-gray-700 hover:border-cyan-accent text-xs text-gray-300 transition-all flex items-center gap-1.5">
-                                    <i class="fa-solid fa-code text-emerald-400"></i> Software Engineer
-                                </button>
-                                <button onclick="setProfile('pm')" class="px-3 py-1.5 rounded-lg bg-navy-800 border border-gray-700 hover:border-cyan-accent text-xs text-gray-300 transition-all flex items-center gap-1.5">
-                                    <i class="fa-solid fa-briefcase text-purple-400"></i> Product Manager
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Right: Score Card -->
-                    <div class="md:col-span-6 bg-navy-950/90 rounded-xl p-5 border border-gray-800 flex flex-col justify-between">
-                        <div>
-                            <div class="flex items-center justify-between mb-4">
-                                <span class="text-xs font-bold tracking-wider text-gray-400 uppercase">Resume Audit Score</span>
-                                <span id="statusBadge" class="text-[10px] px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-medium">Ready</span>
-                            </div>
-
-                            <!-- Circle Chart & Details -->
-                            <div class="flex items-center gap-4 mb-5">
-                                <div class="relative w-20 h-20 flex-shrink-0">
-                                    <svg class="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
-                                        <path class="text-gray-800" stroke-width="3" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                                        <path id="scoreDash" class="text-cyan-accent circle-chart-circle" stroke-width="3" stroke-dasharray="64, 100" stroke-linecap="round" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                                    </svg>
-                                    <div class="absolute inset-0 flex flex-col items-center justify-center">
-                                        <span id="scoreVal" class="text-2xl font-extrabold text-white">64</span>
-                                        <span class="text-[9px] text-gray-400">/100</span>
-                                    </div>
-                                </div>
-                                <div>
-                                    <h4 id="scoreHeadline" class="text-sm font-bold text-white mb-0.5">Needs Optimization</h4>
-                                    <p id="scoreDescription" class="text-xs text-gray-400 leading-snug">Detailed 4-page analysis uploaded for your resume.</p>
-                                </div>
-                            </div>
-
-                            <!-- Metrics List -->
-                            <div class="space-y-2 text-xs">
-                                <div class="flex items-center justify-between p-2 rounded bg-navy-800/80 border border-gray-800">
-                                    <span class="text-gray-300">ATS Keyword Match</span>
-                                    <span id="atsMatch" class="font-bold text-cyan-accent">64%</span>
-                                </div>
-                                <div class="flex items-center justify-between p-2 rounded bg-navy-800/80 border border-gray-800">
-                                    <span class="text-gray-300">Action Verbs & Impact</span>
-                                    <span id="actionVerbs" class="font-bold text-emerald-400">STRONG</span>
-                                </div>
-                                <div class="flex items-center justify-between p-2 rounded bg-navy-800/80 border border-gray-800">
-                                    <span class="text-gray-300">Format & Structure</span>
-                                    <span id="formatStatus" class="font-bold text-red-400">POOR</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <a href="https://tally.so/r/BzvayQ" target="_blank" class="w-full mt-4 py-2.5 rounded-lg bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs transition-colors flex items-center justify-center gap-1.5 shadow">
-    <span>Generate Full Detailed Report →</span>
-</a>
-
-                            <span>Generate Full Detailed Report</span>
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Section 2: Features -->
-        <section id="features" class="mt-28">
-            <div class="text-center max-w-2xl mx-auto mb-14">
-                <span class="text-[11px] font-bold tracking-widest text-cyan-accent uppercase mb-2 block">ALL-IN-ONE TOOLKIT</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Everything you need to get hired faster.</h2>
-            </div>
-
-            <!-- 3 Cards Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Card 1 -->
-                <div class="glass-panel p-6 rounded-2xl border border-gray-800 hover:border-cyan-500/40 transition-all flex flex-col justify-between">
+                <!-- Live Mentor Feedback Box -->
+                <div class="bg-slate-50 border border-slate-200/80 rounded-xl p-6 flex flex-col justify-between">
                     <div>
-                        <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-accent flex items-center justify-center text-xl mb-5">
-                            <i class="fa-solid fa-chart-simple"></i>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-semibold uppercase tracking-wider text-slate-500">Mentor AI Analysis</span>
+                            <span class="bg-green-100 text-green-800 text-xs font-bold px-2.5 py-0.5 rounded-full">78% Match</span>
                         </div>
-                        <h3 class="text-lg font-bold text-white mb-2">Instant ATS Analyzer</h3>
-                        <p class="text-gray-400 text-xs leading-relaxed mb-6">
-                            Upload your resume to get an instant ATS compatibility score out of 100. Identify missing critical metrics, weak action verbs, and structural formatting flaws instantly.
+                        <p class="text-sm text-slate-700 leading-relaxed">
+                            "You have strong data fundamentals! To clear the ATS filter for Junior Data Analyst roles, let's inject 2 missing keywords and link an open-source project."
                         </p>
                     </div>
-                    <ul class="space-y-2 text-xs text-gray-300 pt-4 border-t border-gray-800/80">
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-cyan-accent"></i> Instant compatibility score</li>
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-cyan-accent"></i> Action verb strength analysis</li>
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-cyan-accent"></i> Structure/formatting inspection</li>
+                    <div class="mt-6 pt-4 border-t border-slate-200 flex items-center justify-between">
+                        <span class="text-xs text-slate-500">Missing: Tableau, SQL Joins</span>
+                        <button onclick="alert('Demo simulator: Please upload your resume to run live analysis!')" class="text-xs font-semibold text-terracotta hover:underline">Fix Automatically &rarr;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CORE FEATURES SECTION -->
+    <section id="features" class="py-20 bg-white border-y border-cardBorder">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-3xl font-bold tracking-tight text-slateDark">Everything you need to get hired faster</h2>
+                <p class="mt-3 text-slate-600">Built to replace robotic rejection notices with clear, mentorship-driven guidance.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="border border-cardBorder rounded-2xl p-8 hover:shadow-lg transition bg-canvas/50 flex flex-col justify-between">
+                    <div>
+                        <div class="w-10 h-10 rounded-xl bg-orange-100 text-terracotta flex items-center justify-center font-bold mb-6">🔍</div>
+                        <h3 class="text-lg font-bold text-slateDark mb-2">Instant ATS Analyzer</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">See your resume exactly how recruiters and automated ATS filters see it before you apply.</p>
+                    </div>
+                    <ul class="mt-6 space-y-2 text-xs text-slate-500 border-t border-slate-200/60 pt-4">
+                        <li>• Format & structure check</li>
+                        <li>• Keyword compatibility score</li>
                     </ul>
                 </div>
 
                 <!-- Card 2 -->
-                <div class="glass-panel p-6 rounded-2xl border border-gray-800 hover:border-cyan-500/40 transition-all flex flex-col justify-between">
+                <div class="border border-cardBorder rounded-2xl p-8 hover:shadow-lg transition bg-canvas/50 flex flex-col justify-between">
                     <div>
-                        <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-accent flex items-center justify-center text-xl mb-5">
-                            <i class="fa-solid fa-rocket"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-white mb-2">Magic Project Builder</h3>
-                        <p class="text-gray-400 text-xs leading-relaxed mb-6">
-                            Automatically scans your profile for missing tech stacks like Power BI, SQL, or Python. Instantly get custom live-dataset blueprints to bridge your portfolio gap.
-                        </p>
+                        <div class="w-10 h-10 rounded-xl bg-orange-100 text-terracotta flex items-center justify-center font-bold mb-6">🚀</div>
+                        <h3 class="text-lg font-bold text-slateDark mb-2">GitHub Internship Matcher</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">Automatically scan your skill gaps and get matched with free open-source internships and beginner issues.</p>
                     </div>
-                    <ul class="space-y-2 text-xs text-gray-300 pt-4 border-t border-gray-800/80">
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-cyan-accent"></i> Identifies tech skill gaps</li>
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-cyan-accent"></i> Tailored target role projects</li>
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-cyan-accent"></i> Step-by-step guides</li>
+                    <ul class="mt-6 space-y-2 text-xs text-slate-500 border-t border-slate-200/60 pt-4">
+                        <li>• Real-time GitHub API search</li>
+                        <li>• Beginner-friendly issues tagged</li>
                     </ul>
                 </div>
 
                 <!-- Card 3 -->
-                <div class="glass-panel p-6 rounded-2xl border border-gray-800 hover:border-cyan-500/40 transition-all flex flex-col justify-between">
+                <div class="border border-cardBorder rounded-2xl p-8 hover:shadow-lg transition bg-canvas/50 flex flex-col justify-between">
                     <div>
-                        <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-accent flex items-center justify-center text-xl mb-5">
-                            <i class="fa-solid fa-crosshair"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-white mb-2">ATS Keyword Injector</h3>
-                        <p class="text-gray-400 text-xs leading-relaxed mb-6">
-                            Paste any target job description. Our scanner isolates heavy recruiter keywords (EDA, Cohort Analysis, Window Functions) and guides you exactly where to place them naturally.
-                        </p>
+                        <div class="w-10 h-10 rounded-xl bg-orange-100 text-terracotta flex items-center justify-center font-bold mb-6">🎯</div>
+                        <h3 class="text-lg font-bold text-slateDark mb-2">Smart Keyword Injector</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">Tailor your experience naturally to job descriptions without sounding robotic or forced.</p>
                     </div>
-                    <ul class="space-y-2 text-xs text-gray-300 pt-4 border-t border-gray-800/80">
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-cyan-accent"></i> High-density keyword extractor</li>
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-cyan-accent"></i> Resume phrase rewriting engine</li>
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-cyan-accent"></i> Natural keyword insertion</li>
+                    <ul class="mt-6 space-y-2 text-xs text-slate-500 border-t border-slate-200/60 pt-4">
+                        <li>• Natural language integration</li>
+                        <li>• Role-specific recommendations</li>
                     </ul>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Stats Bar -->
-        <section class="mt-20 glass-panel rounded-2xl p-6 border border-gray-800">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-                <div>
-                    <div class="text-2xl sm:text-3xl font-extrabold text-white">94%</div>
-                    <div class="text-xs text-gray-400 mt-1">ATS Pass Rate</div>
+    <!-- LIVE GITHUB API INTERNSHIP FINDER SECTION -->
+    <section id="github-internships" class="py-20 px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-xs font-semibold uppercase tracking-wider text-terracotta bg-orange-50 px-3 py-1 rounded-full border border-orange-200">Live Integration</span>
+                <h2 class="text-3xl font-bold tracking-tight text-slateDark mt-3">Find Active Open-Source Internships</h2>
+                <p class="mt-2 text-slate-600 text-sm">Test our live GitHub API connector right now to discover real projects looking for contributors.</p>
+            </div>
+
+            <!-- Search Widget Box -->
+            <div class="bg-white border border-cardBorder rounded-2xl p-6 shadow-sm">
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <input type="text" id="skillInput" placeholder="Enter a skill (e.g., python, react, data-analysis)" class="flex-1 bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-terracotta">
+                    <button onclick="fetchGitHubInternships()" class="bg-terracotta hover:bg-terracottaHover text-white text-sm font-medium px-6 py-3 rounded-xl transition shadow-sm">
+                        Search Opportunities
+                    </button>
                 </div>
-                <div>
-                    <div class="text-2xl sm:text-3xl font-extrabold text-cyan-accent">3.5x</div>
-                    <div class="text-xs text-gray-400 mt-1">Interview Rate</div>
-                </div>
-                <div>
-                    <div class="text-2xl sm:text-3xl font-extrabold text-white">120K+</div>
-                    <div class="text-xs text-gray-400 mt-1">Resumes Scanned</div>
-                </div>
-                <div>
-                    <div class="text-2xl sm:text-3xl font-extrabold text-emerald-400">$18K</div>
-                    <div class="text-xs text-gray-400 mt-1">Avg Salary Jump</div>
+
+                <!-- Results Container -->
+                <div id="githubResults" class="mt-6 space-y-3">
+                    <div class="p-4 rounded-xl border border-slate-100 bg-slate-50 text-center text-sm text-slate-500">
+                        Type a skill above and click search to fetch live GitHub repositories and internships!
+                    </div>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
-    <footer class="border-t border-gray-800/80 bg-navy-950 py-8 relative z-10 text-center text-xs text-gray-500">
-        © 2026 hiremewithai.com • AI Offer Letter Platform
+    <!-- FOUNDER'S NOTE (HUMAN TOUCH SECTION) -->
+    <section id="founder" class="py-20 bg-slate-900 text-white px-6">
+        <div class="max-w-3xl mx-auto text-center">
+            <div class="w-12 h-12 rounded-full bg-terracotta/20 border border-terracotta/30 text-terracotta flex items-center justify-center font-bold mx-auto mb-6 text-xl">
+                💬
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-bold tracking-tight">A Note from the Founder</h2>
+            <blockquote class="mt-6 text-lg text-slate-300 italic leading-relaxed">
+                "We know job hunting can feel isolating, stressful, and entirely mechanical. That's why DataRole AI wasn't built to judge you with cold numbers—it was built to act as your supportive mentor, helping you bridge your skill gaps and gain real-world experience."
+            </blockquote>
+            <p class="mt-6 text-sm font-medium text-terracotta">— Team DataRole AI</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-white border-t border-cardBorder py-12 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between text-sm text-slate-500">
+            <div class="flex items-center space-x-2 mb-4 sm:mb-0">
+                <div class="w-6 h-6 rounded bg-terracotta flex items-center justify-center text-white font-bold text-xs">D</div>
+                <span class="font-bold text-slateDark">DataRole AI</span>
+            </div>
+            <p>© 2026 DataRole AI. All rights reserved.</p>
+            <div class="flex space-x-6 mt-4 sm:mt-0">
+                <a href="#" class="hover:text-slateDark transition">Privacy</a>
+                <a href="#" class="hover:text-slateDark transition">Terms</a>
+                <a href="#" class="hover:text-slateDark transition">Contact</a>
+            </div>
+        </div>
     </footer>
 
-    <!-- Interactive Script -->
+    <!-- JAVASCRIPT FOR GITHUB API SIMULATOR -->
     <script>
-        const profileData = {
-            data: {
-                score: 64,
-                headline: 'Needs Optimization',
-                desc: 'Detailed 4-page analysis uploaded for your resume.',
-                ats: '64%',
-                verbs: 'STRONG',
-                format: 'POOR',
-                dash: '64, 100'
-            },
-            swe: {
-                score: 89,
-                headline: 'High Compatibility',
-                desc: 'Strong technical keywords for Systems Engineer role.',
-                ats: '89%',
-                verbs: 'EXCELLENT',
-                format: 'GOOD',
-                dash: '89, 100'
-            },
-            pm: {
-                score: 72,
-                headline: 'Moderate Match',
-                desc: 'Missing product metric KPIs & lifecycle frameworks.',
-                ats: '72%',
-                verbs: 'MODERATE',
-                format: 'AVERAGE',
-                dash: '72, 100'
+        async function fetchGitHubInternships() {
+            const skill = document.getElementById('skillInput').value.trim() || 'python';
+            const resultsDiv = document.getElementById('githubResults');
+            
+            resultsDiv.innerHTML = `<div class="p-4 rounded-xl border border-slate-100 bg-slate-50 text-center text-sm text-slate-500">Searching GitHub repositories for <strong>${skill}</strong>...</div>`;
+            
+            try {
+                const response = await fetch(`https://api.github.com/search/repositories?q=${encodeURIComponent(skill)}+topic:internship&sort=stars&order=desc`);
+                const data = await response.json();
+                
+                if (data.items && data.items.length > 0) {
+                    let html = '';
+                    data.items.slice(0, 3).repo => {}; // placeholder
+                    data.items.slice(0, 3).forEach(repo => {
+                        html += `
+                            <div class="p-4 rounded-xl border border-slate-200 bg-white hover:border-terracotta transition flex items-center justify-between">
+                                <div>
+                                    <a href="${repo.html_url}" target="_blank" class="font-bold text-sm text-slateDark hover:text-terracotta">${repo.full_name}</a>
+                                    <p class="text-xs text-slate-500 mt-1 line-clamp-1">${repo.description || 'No description provided.'}</p>
+                                </div>
+                                <a href="${repo.html_url}" target="_blank" class="ml-4 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-medium px-3 py-1.5 rounded-lg transition shrink-0">View Repo</a>
+                            </div>
+                        `;
+                    });
+                    resultsDiv.innerHTML = html;
+                } else {
+                    resultsDiv.innerHTML = `<div class="p-4 rounded-xl border border-slate-100 bg-slate-50 text-center text-sm text-slate-500">No active repositories found for "${skill}". Try searching for "python", "react", or "data".</div>`;
+                }
+            } catch (error) {
+                resultsDiv.innerHTML = `<div class="p-4 rounded-xl border border-red-100 bg-red-50 text-center text-sm text-red-600">Unable to fetch live GitHub data at the moment. Please try again later.</div>`;
             }
-        };
-
-        function setProfile(key) {
-            const data = profileData[key];
-            if (!data) return;
-
-            document.getElementById('scoreVal').innerText = data.score;
-            document.getElementById('scoreHeadline').innerText = data.headline;
-            document.getElementById('scoreDescription').innerText = data.desc;
-            document.getElementById('atsMatch').innerText = data.ats;
-            document.getElementById('actionVerbs').innerText = data.verbs;
-            document.getElementById('formatStatus').innerText = data.format;
-            document.getElementById('scoreDash').setAttribute('stroke-dasharray', data.dash);
-        }
-
-        function scrollToDemo() {
-            document.getElementById('demo').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        function handleFileUpload(e) {
-            if (e.target.files.length > 0) {
-                document.getElementById('statusBadge').innerText = 'Scanned: ' + e.target.files[0].name;
-                setProfile('swe');
-            }
-        }
-
-        function generateReport() {
-            document.getElementById('statusBadge').innerText = 'Report Generated!';
         }
     </script>
 </body>
