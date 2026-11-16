@@ -415,11 +415,11 @@ html = r'''<!DOCTYPE html>
       This keeps the existing Tally -> Make.com -> Gemini -> Gmail workflow intact.
       Do not put Gemini API keys or private Make.com webhook URLs in this public file.
     */
-    const TALLY_FORM_URL = "YOUR_TALLY_FORM_URL";
+    const TALLY_FORM_URL = "https://tally.so/r/BzvayQ";
 
     document.querySelectorAll("[data-tally-link]").forEach((link) => {
       link.href = TALLY_FORM_URL;
-      if (TALLY_FORM_URL === "YOUR_TALLY_FORM_URL") {
+      if (TALLY_FORM_URL === "https://tally.so/r/BzvayQ") {
         link.addEventListener("click", (event) => {
           event.preventDefault();
           alert("Please add your real Tally form URL in the TALLY_FORM_URL setting before publishing.");
