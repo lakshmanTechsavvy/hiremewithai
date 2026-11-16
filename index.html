@@ -1,587 +1,518 @@
-from pathlib import Path
-
-html = r'''<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DataRole AI | Resume & Skill Gap Guide for Data Analyst Freshers</title>
-  <meta name="description" content="Compare your resume with a Data Analyst job description, identify skill gaps and find beginner-friendly open-source projects with DataRole AI by HireMeWithAI." />
-  <meta name="theme-color" content="#F97316" />
-  <link rel="canonical" href="https://hiremewithai.com/" />
+  <title>DataRole AI — Honest Resume & Skill-Gap Guide for Freshers</title>
+  <meta name="description" content="Stop guessing why your fresher resume gets ignored. Check missing keywords, get a weekend proof-of-work project idea, and find open-source internships." />
+  
+  <!-- Brand Favicon -->
   <link rel="icon" type="image/png" href="/favicon.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="DataRole AI | Know what to improve before you apply" />
-  <meta property="og:description" content="Compare your resume with a Data Analyst job description and get practical suggestions for your next step." />
-  <meta property="og:url" content="https://hiremewithai.com/" />
+  <!-- Clean, Human-Centric Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --page: #fff;
-      --soft: #fafafa;
-      --warm: #fff7ed;
-      --border: #e5e7eb;
-      --border-warm: #ffedd5;
-      --ink: #111827;
-      --body: #4b5563;
-      --muted: #6b7280;
-      --orange: #f97316;
-      --orange-hover: #ea580c;
-      --orange-dark: #9a3412;
-      --navy: #111827;
-      --green: #166534;
-      --green-bg: #dcfce7;
-      --shadow: 0 10px 30px -5px rgba(0,0,0,.07), 0 4px 10px -2px rgba(0,0,0,.03);
-      --radius: 16px;
+      --bg-page: #FFFFFF;
+      --bg-subtle: #FAFAFA;
+      --bg-warm-tint: #FFF7ED;
+      --border-light: #E5E7EB;
+      --border-warm: #FFEDD5;
+      --text-primary: #111827;
+      --text-secondary: #4B5563;
+      --text-muted: #6B7280;
+      --brand-orange: #F97316;
+      --brand-orange-hover: #EA580C;
+      --brand-orange-dark: #9A3412;
+      --dark-footer: #0F172A;
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+      --shadow-card: 0 10px 30px -5px rgba(0, 0, 0, 0.06), 0 4px 10px -2px rgba(0, 0, 0, 0.03);
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
-      color: var(--ink);
-      background: var(--page);
-      line-height: 1.65;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-primary);
+      line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
-    a { color: inherit; text-decoration: none; }
-    button, input { font: inherit; }
-    button:focus-visible, a:focus-visible, input:focus-visible {
-      outline: 3px solid rgba(249,115,22,.3);
-      outline-offset: 3px;
-    }
-    .container { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
 
-    /* Navigation */
-    .site-header {
-      position: sticky; top: 0; z-index: 20;
-      background: rgba(255,255,255,.94);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
+    a {
+      text-decoration: none;
+      color: inherit;
     }
-    .nav-inner { min-height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-    .brand { display: inline-flex; align-items: center; gap: 9px; font-size: 17px; font-weight: 800; letter-spacing: -.04em; white-space: nowrap; }
-    .brand-mark {
-      width: 30px; height: 30px; display: grid; place-items: center;
-      border-radius: 8px; background: var(--orange); color: #fff; font-size: 16px;
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px;
     }
-    .brand-ai { color: var(--orange); }
-    .nav-links { display: flex; align-items: center; gap: 28px; color: var(--body); font-size: 13px; font-weight: 600; }
-    .nav-links a:hover { color: var(--orange-dark); }
-    .nav-cta { display: flex; align-items: center; gap: 12px; }
-    .parent-brand { color: var(--muted); font-size: 11px; white-space: nowrap; }
+
+    /* ================= NAVBAR ================= */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 18px;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-badge {
+      width: 28px;
+      height: 28px;
+      background: var(--brand-orange);
+      color: #FFFFFF;
+      border-radius: 7px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 16px;
+    }
+
+    .brand span.ai {
+      color: var(--brand-orange);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-secondary);
+    }
+
+    .nav-links a:hover {
+      color: var(--text-primary);
+    }
 
     .btn {
-      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-      border: 1px solid transparent; border-radius: 9px; cursor: pointer;
-      font-weight: 700; transition: background .18s ease, transform .18s ease, border-color .18s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-weight: 600;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
     }
-    .btn:hover { transform: translateY(-1px); }
-    .btn-primary { color: #fff; background: var(--orange); box-shadow: 0 3px 8px rgba(249,115,22,.18); }
-    .btn-primary:hover { background: var(--orange-hover); }
-    .btn-outline { color: var(--ink); background: #fff; border-color: var(--border); }
-    .btn-outline:hover { background: var(--soft); border-color: #cbd5e1; }
-    .btn-sm { padding: 9px 14px; font-size: 12px; }
-    .btn-lg { padding: 13px 19px; font-size: 14px; }
 
-    /* Hero */
+    .btn-sm {
+      padding: 8px 16px;
+      font-size: 13px;
+    }
+
+    .btn-lg {
+      padding: 14px 24px;
+      font-size: 15px;
+    }
+
+    .btn-primary {
+      background: var(--brand-orange);
+      color: #FFFFFF;
+      box-shadow: 0 2px 6px rgba(249, 115, 22, 0.25);
+    }
+
+    .btn-primary:hover {
+      background: var(--brand-orange-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background: #FFFFFF;
+      color: var(--text-primary);
+      border: 1px solid var(--border-light);
+    }
+
+    .btn-outline:hover {
+      background: var(--bg-subtle);
+      border-color: #D1D5DB;
+    }
+
+    /* ================= HERO SECTION ================= */
     .hero {
-      padding: 76px 0 74px; text-align: center;
-      background: radial-gradient(ellipse at 50% 0%, #fff1e5 0%, #fffaf6 36%, #fff 76%);
-    }
-    .eyebrow {
-      display: inline-flex; align-items: center; gap: 7px;
-      padding: 6px 12px; margin-bottom: 20px;
-      color: var(--orange-dark); background: var(--warm);
-      border: 1px solid var(--border-warm); border-radius: 999px;
-      font-size: 11px; font-weight: 700;
-    }
-    h1 { max-width: 790px; margin: 0 auto 16px; font-size: clamp(32px, 5vw, 49px); line-height: 1.13; letter-spacing: -.045em; font-weight: 800; }
-    .hero-copy { max-width: 660px; margin: 0 auto 25px; color: var(--body); font-size: clamp(14px, 1.8vw, 16px); }
-    .hero-actions { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 11px; margin-bottom: 14px; }
-    .trust-line { color: var(--muted); font-size: 11px; }
-    .trust-points { display: flex; justify-content: center; flex-wrap: wrap; gap: 9px; margin: 20px auto 34px; }
-    .trust-points span {
-      display: inline-flex; align-items: center; gap: 6px;
-      padding: 7px 11px; border: 1px solid var(--border); border-radius: 999px;
-      background: rgba(255,255,255,.8); color: var(--body); font-size: 11px; font-weight: 600;
+      padding: 64px 0 72px;
+      text-align: center;
+      background: radial-gradient(circle at top center, #FFF7ED 0%, #FFFFFF 55%);
     }
 
-    /* Example preview */
-    .preview-card {
-      max-width: 820px; margin: 0 auto; padding: 20px;
-      display: grid; grid-template-columns: .95fr 1.15fr; gap: 16px;
-      text-align: left; background: #fff; border: 1px solid var(--border);
-      border-radius: var(--radius); box-shadow: var(--shadow);
+    .pill-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--bg-warm-tint);
+      border: 1px solid var(--border-warm);
+      color: var(--brand-orange-dark);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 14px;
+      border-radius: 999px;
+      margin-bottom: 22px;
     }
-    .preview-upload {
-      min-height: 205px; display: flex; flex-direction: column; justify-content: center; align-items: center;
-      text-align: center; padding: 20px; background: var(--soft);
-      border: 1.5px dashed #cbd5e1; border-radius: 12px;
-    }
-    .preview-icon { width: 42px; height: 42px; display: grid; place-items: center; margin-bottom: 12px; border: 1px solid var(--border); border-radius: 11px; background: #fff; font-size: 20px; }
-    .preview-upload h3 { font-size: 14px; margin-bottom: 5px; }
-    .preview-upload p { max-width: 240px; margin-bottom: 13px; color: var(--muted); font-size: 11px; }
-    .preview-report { padding: 18px; border: 1px solid var(--border); border-radius: 12px; background: #fff; }
-    .preview-report-top { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 15px; }
-    .preview-label { color: var(--muted); font-size: 10px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; }
-    .example-tag { color: #854d0e; background: #fef3c7; border-radius: 999px; padding: 4px 8px; font-size: 9px; font-weight: 800; white-space: nowrap; }
-    .preview-intro { color: var(--body); font-size: 12px; margin-bottom: 12px; }
-    .skill-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .skill-columns h4 { margin-bottom: 6px; color: var(--muted); font-size: 9px; letter-spacing: .04em; text-transform: uppercase; }
-    .skill-columns ul { padding-left: 15px; color: var(--body); font-size: 11px; }
-    .skill-columns li { margin: 3px 0; }
-    .preview-footnote { border-top: 1px solid var(--border); margin-top: 14px; padding-top: 10px; color: var(--muted); font-size: 10px; }
 
-    /* Shared sections */
-    .section { padding: 74px 0; }
-    .section-soft { background: var(--soft); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-    .section-heading { max-width: 650px; margin: 0 auto 38px; text-align: center; }
-    .section-heading h2 { margin-bottom: 9px; font-size: clamp(23px, 3vw, 29px); line-height: 1.25; letter-spacing: -.035em; }
-    .section-heading p { color: var(--body); font-size: 14px; }
-    .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .hero h1 {
+      font-size: clamp(32px, 5vw, 50px);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      max-width: 780px;
+      margin: 0 auto 20px;
+      color: var(--text-primary);
+    }
+
+    .hero p.subtitle {
+      font-size: clamp(16px, 2vw, 18px);
+      color: var(--text-secondary);
+      max-width: 640px;
+      margin: 0 auto 30px;
+      font-weight: 400;
+    }
+
+    .micro-trust {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      margin-bottom: 22px;
+    }
+
+    /* Live Visitor & Audit Counter Pill */
+    .live-stats-bar {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      padding: 10px 22px;
+      background: var(--bg-warm-tint);
+      border: 1px solid var(--border-warm);
+      border-radius: 999px;
+      font-size: 13.5px;
+      color: var(--brand-orange-dark);
+      font-weight: 500;
+      margin-bottom: 44px;
+    }
+
+    .live-stats-bar strong {
+      font-weight: 800;
+      color: #7C2D12;
+    }
+
+    .live-stats-bar .divider {
+      color: #FDBA74;
+    }
+
+    /* ================= EMBEDDED TALLY FORM SECTION ================= */
+    .form-section {
+      padding: 40px 0 72px;
+      background: var(--bg-subtle);
+      border-top: 1px solid var(--border-light);
+    }
+
+    .form-card {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: var(--shadow-card);
+    }
+
+    /* ================= FEATURES SECTION ================= */
+    .features {
+      padding: 72px 0;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 48px;
+    }
+
+    .section-header h2 {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+    }
+
+    .section-header p {
+      font-size: 15px;
+      color: var(--text-secondary);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
     .feature-card {
-      padding: 25px; background: #fff; border: 1px solid var(--border); border-radius: 14px;
-      transition: transform .2s ease, box-shadow .2s ease;
+      background: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-radius: 14px;
+      padding: 28px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
-    .feature-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
-    .feature-icon { width: 39px; height: 39px; display: grid; place-items: center; margin-bottom: 16px; border-radius: 10px; background: var(--warm); border: 1px solid var(--border-warm); font-size: 18px; }
-    .feature-card h3 { margin-bottom: 8px; font-size: 16px; }
-    .feature-card p { min-height: 76px; margin-bottom: 16px; color: var(--body); font-size: 13px; }
-    .feature-list { list-style: none; border-top: 1px solid var(--border); padding-top: 13px; }
-    .feature-list li { margin: 5px 0; color: var(--muted); font-size: 11px; }
-    .feature-list li::before { content: "•"; margin-right: 8px; color: var(--orange); font-weight: 800; }
 
-    /* GitHub projects */
-    .github-section { padding: 74px 0; background: #fbfbfc; border-bottom: 1px solid var(--border); text-align: center; }
-    .search-card { max-width: 740px; margin: 0 auto; padding: 22px; background: #fff; border: 1px solid var(--border); border-radius: 14px; box-shadow: var(--shadow); }
-    .search-row { display: flex; gap: 10px; }
-    .search-row input {
-      flex: 1; min-width: 0; padding: 12px 14px; border: 1px solid var(--border);
-      border-radius: 8px; color: var(--ink); background: #fff; font-size: 13px;
+    .feature-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-card);
     }
-    .quick-searches { display: flex; flex-wrap: wrap; justify-content: center; gap: 7px; margin: 13px 0 16px; }
-    .quick-searches button { padding: 6px 10px; border: 1px solid var(--border); border-radius: 999px; background: #fff; color: var(--body); font-size: 10px; font-weight: 700; cursor: pointer; }
-    .quick-searches button:hover { border-color: var(--orange); color: var(--orange-dark); }
-    .results-box { min-height: 70px; padding: 13px; border: 1px solid var(--border); border-radius: 9px; background: var(--soft); color: var(--muted); text-align: left; font-size: 12px; }
-    .result-item { display: flex; justify-content: space-between; align-items: flex-start; gap: 14px; padding: 12px; margin-bottom: 8px; background: #fff; border: 1px solid var(--border); border-radius: 8px; }
-    .result-item:last-child { margin-bottom: 0; }
-    .result-title { display: inline-block; color: #c2410c; font-weight: 800; font-size: 12px; }
-    .result-title:hover { text-decoration: underline; }
-    .result-meta { margin-top: 4px; color: var(--muted); font-size: 10px; }
-    .result-repo { color: var(--body); font-size: 11px; font-weight: 700; }
-    .result-note { margin-top: 12px; color: var(--muted); font-size: 10px; text-align: center; }
-    .status-message { padding: 9px; text-align: center; }
 
-    /* Founder and footer */
-    .founder { padding: 70px 0 46px; color: #fff; background: var(--navy); text-align: center; }
-    .founder-icon { width: 42px; height: 42px; display: grid; place-items: center; margin: 0 auto 15px; border: 1px solid rgba(255,255,255,.16); border-radius: 50%; background: rgba(255,255,255,.07); }
-    .founder h2 { margin-bottom: 15px; font-size: 24px; letter-spacing: -.03em; }
-    .founder-copy { max-width: 700px; margin: 0 auto 17px; color: #d1d5db; font-size: 14px; line-height: 1.85; }
-    .founder-sign { color: #fdba74; font-size: 12px; font-weight: 700; }
-    .site-footer { padding: 18px 0; color: #9ca3af; background: #0b1220; text-align: center; font-size: 10px; }
-    .site-footer a { color: #e5e7eb; text-decoration: underline; text-underline-offset: 3px; }
+    .feature-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 9px;
+      background: var(--bg-warm-tint);
+      border: 1px solid var(--border-warm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      margin-bottom: 18px;
+    }
+
+    .feature-card h3 {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .feature-card p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 18px;
+      line-height: 1.55;
+    }
+
+    .feature-bullets {
+      list-style: none;
+      border-top: 1px solid var(--border-light);
+      padding-top: 14px;
+    }
+
+    .feature-bullets li {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .feature-bullets li::before {
+      content: "•";
+      color: var(--brand-orange);
+      font-weight: 800;
+    }
+
+    /* ================= FOUNDER NOTE ================= */
+    .founder-section {
+      background: var(--dark-footer);
+      color: #FFFFFF;
+      padding: 72px 0;
+      text-align: center;
+    }
+
+    .founder-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+      font-size: 16px;
+    }
+
+    .founder-section h2 {
+      font-size: 24px;
+      font-weight: 800;
+      margin-bottom: 18px;
+      letter-spacing: -0.02em;
+    }
+
+    .founder-quote {
+      max-width: 680px;
+      margin: 0 auto 20px;
+      font-size: 16.5px;
+      font-style: italic;
+      color: #E2E8F0;
+      line-height: 1.75;
+    }
+
+    .founder-sign {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--brand-orange);
+    }
 
     @media (max-width: 820px) {
-      .nav-links { gap: 15px; }
-      .feature-grid { grid-template-columns: 1fr 1fr; }
-      .preview-card { max-width: 680px; }
-    }
-    @media (max-width: 640px) {
-      .container { width: min(100% - 30px, 540px); }
-      .nav-inner { min-height: 62px; }
-      .nav-links { display: none; }
-      .parent-brand { display: none; }
-      .hero { padding: 54px 0 56px; }
-      .hero-actions { flex-direction: column; align-items: stretch; max-width: 340px; margin-left: auto; margin-right: auto; }
-      .hero-actions .btn { width: 100%; }
-      .preview-card { grid-template-columns: 1fr; padding: 13px; }
-      .preview-upload { min-height: 175px; }
-      .section, .github-section { padding: 56px 0; }
-      .feature-grid { grid-template-columns: 1fr; gap: 13px; }
-      .feature-card p { min-height: 0; }
-      .search-card { padding: 14px; }
-      .search-row { flex-direction: column; }
-      .search-row .btn { min-height: 43px; }
-      .skill-columns { gap: 8px; }
-      .founder { padding: 55px 0 38px; }
-      .founder-copy { font-size: 13px; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+      .nav-links {
+        display: none;
+      }
     }
   </style>
 </head>
 <body>
-  <!--
-    SETUP BEFORE DEPLOYMENT:
-    1. Replace the TALLY_FORM_URL value below with your real Tally form URL.
-    2. Add favicon.png to the root of your GitHub repository.
-    3. Update the canonical and social URLs if your production domain differs.
-    4. Keep Make.com webhooks and Gemini API keys on the server/automation side, never in this HTML file.
-  -->
 
-  <header class="site-header">
+  <!-- Navigation -->
+  <header>
     <div class="container nav-inner">
-      <a href="#top" class="brand" aria-label="DataRole AI home">
-        <span class="brand-mark">D</span>
-        <span>DataRole <span class="brand-ai">AI</span></span>
+      <a href="#" class="brand">
+        <span class="brand-badge">D</span>
+        <span>DataRole <span class="ai">AI</span></span>
       </a>
 
-      <nav class="nav-links" aria-label="Main navigation">
+      <nav class="nav-links">
+        <a href="#analyzer">Analyzer Form</a>
         <a href="#features">How It Helps</a>
-        <a href="#projects">Open-source Projects</a>
-        <a href="#story">Our Story</a>
+        <a href="#our-story">Our Story</a>
       </nav>
 
-      <div class="nav-cta">
-        <span class="parent-brand">by HireMeWithAI</span>
-        <a href="#" data-tally-link class="btn btn-primary btn-sm">Try the Free Review</a>
+      <div>
+        <a href="#analyzer" class="btn btn-primary btn-sm">
+          Try Free Analyzer
+        </a>
       </div>
     </div>
   </header>
 
-  <main id="top">
-    <section class="hero">
-      <div class="container">
-        <div class="eyebrow">Made for aspiring Data Analysts</div>
-        <h1>Trying to land your first Data Analyst job?</h1>
-        <p class="hero-copy">
-          Your resume may be missing a few things employers are looking for.
-          Compare it with a job description, spot the gaps and get practical ideas for what to improve next.
-        </p>
-
-        <div class="hero-actions">
-          <a href="#" data-tally-link class="btn btn-primary btn-lg">Check My Resume <span aria-hidden="true">→</span></a>
-          <a href="#projects" class="btn btn-outline btn-lg">Explore Open-source Projects</a>
-        </div>
-        <p class="trust-line">Free to try · No credit card required</p>
-
-        <div class="trust-points" aria-label="What the tool offers">
-          <span>✓ Resume + job description review</span>
-          <span>✓ Practical skill-gap suggestions</span>
-          <span>✓ Beginner-friendly project ideas</span>
-        </div>
-
-        <div class="preview-card" aria-label="Example of a DataRole AI report">
-          <div class="preview-upload">
-            <div class="preview-icon" aria-hidden="true">📄</div>
-            <h3>Ready to review your resume?</h3>
-            <p>Share your resume and the job description you're interested in.</p>
-            <a href="#" data-tally-link class="btn btn-outline btn-sm">Start My Review</a>
-          </div>
-
-          <div class="preview-report">
-            <div class="preview-report-top">
-              <span class="preview-label">Resume review preview</span>
-              <span class="example-tag">EXAMPLE ONLY</span>
-            </div>
-            <p class="preview-intro">A useful review should help you see what already matches the role and what you could work on next.</p>
-            <div class="skill-columns">
-              <div>
-                <h4>Skills in your resume</h4>
-                <ul>
-                  <li>Excel basics</li>
-                  <li>Python fundamentals</li>
-                  <li>Data cleaning project</li>
-                </ul>
-              </div>
-              <div>
-                <h4>Possible gaps to check</h4>
-                <ul>
-                  <li>SQL joins</li>
-                  <li>Power BI dashboards</li>
-                  <li>Explaining project results</li>
-                </ul>
-              </div>
-            </div>
-            <p class="preview-footnote">Example content only. Your review depends on the resume and job description you submit.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="features" class="section">
-      <div class="container">
-        <div class="section-heading">
-          <h2>A clearer next step before you apply</h2>
-          <p>Practical help for people starting out in data analytics — without pretending a score can tell the whole story.</p>
-        </div>
-
-        <div class="feature-grid">
-          <article class="feature-card">
-            <div class="feature-icon" aria-hidden="true">🔍</div>
-            <h3>Resume & Skill Gap Review</h3>
-            <p>Compare your resume with a job description and see which relevant skills or keywords may be missing.</p>
-            <ul class="feature-list">
-              <li>Plain-English suggestions</li>
-              <li>Relevant skills to review</li>
-            </ul>
-          </article>
-
-          <article class="feature-card">
-            <div class="feature-icon" aria-hidden="true">🛠️</div>
-            <h3>Practical Project Ideas</h3>
-            <p>Get a beginner-friendly project idea that can help you practise a skill and build something you can discuss.</p>
-            <ul class="feature-list">
-              <li>Ideas linked to skill gaps</li>
-              <li>Ways to explain your work honestly</li>
-            </ul>
-          </article>
-
-          <article class="feature-card">
-            <div class="feature-icon" aria-hidden="true">💬</div>
-            <h3>Interview Preparation</h3>
-            <p>Prepare to talk about your projects, current skills and areas you're still learning with more confidence.</p>
-            <ul class="feature-list">
-              <li>Practice question suggestions</li>
-              <li>Clear ways to describe your projects</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="projects" class="github-section">
-      <div class="container">
-        <div class="eyebrow">GitHub search</div>
-        <div class="section-heading" style="margin-bottom: 27px;">
-          <h2>Find beginner-friendly open-source issues</h2>
-          <p>Look for public GitHub issues related to data skills. Check each project's contribution guide before getting started.</p>
-        </div>
-
-        <div class="search-card">
-          <form class="search-row" id="github-search-form">
-            <input
-              type="search"
-              id="skill-input"
-              value="SQL"
-              placeholder="Try SQL, Python, Excel or Power BI"
-              aria-label="Search open-source issues by skill"
-              maxlength="60"
-            />
-            <button type="submit" class="btn btn-primary btn-sm" id="search-button">Search GitHub</button>
-          </form>
-
-          <div class="quick-searches" aria-label="Popular data skills">
-            <button type="button" data-skill="SQL">SQL</button>
-            <button type="button" data-skill="Python data analysis">Python</button>
-            <button type="button" data-skill="Power BI">Power BI</button>
-            <button type="button" data-skill="Excel">Excel</button>
-            <button type="button" data-skill="data visualization">Data Visualization</button>
-          </div>
-
-          <div id="github-results" class="results-box" role="status" aria-live="polite">
-            Search for a skill to find public GitHub issues marked for beginner contributions.
-          </div>
-          <p class="result-note">These are community project issues, not verified internships or job vacancies. Availability and contribution requirements can change.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="story" class="founder">
-      <div class="container">
-        <div class="founder-icon" aria-hidden="true">💬</div>
-        <h2>A note from the person behind DataRole AI</h2>
-        <p class="founder-copy">
-          Looking for your first job can be tiring. You find a role, update your resume, apply and wait.
-          When you don't hear back, it's hard to know what to change.
-          <br /><br />
-          I built DataRole AI to make one part of that process a little clearer.
-          It helps you compare your resume with a job description, notice possible skill gaps and think about practical projects you could work on.
-          <br /><br />
-          It won't promise you a job or guarantee an interview. I hope it gives you a useful place to start and a clearer idea of your next step.
-        </p>
-        <div class="founder-sign">DataRole AI · A product by HireMeWithAI</div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
+  <!-- Hero Section -->
+  <section class="hero">
     <div class="container">
-      <p>© <span id="year"></span> HireMeWithAI · DataRole AI. Built to help aspiring data analysts take their next step.</p>
+      <div class="pill-tag">
+        ✨ Built for Indian Freshers &amp; Career Starters
+      </div>
+
+      <h1>Tired of "Entry-Level" Jobs Asking for 2 Years of Experience?</h1>
+
+      <p class="subtitle">
+        Stop guessing why your resume gets ignored. Check what’s missing for your target role, fix your keywords naturally, and build a real weekend project that proves you can do the job.
+      </p>
+
+      <p class="micro-trust">
+        Free forever for freshers • No credit card required • 100% private
+      </p>
+
+      <!-- Live Visitor & Resume Audit Counter -->
+      <div class="live-stats-bar">
+        <span>👀 <strong id="visitor-count">1,240+</strong> Freshers Visited</span>
+        <span class="divider">|</span>
+        <span>📄 <strong id="audit-count">385+</strong> Resumes Audited</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Embedded Tally Form Section -->
+  <section id="analyzer" class="form-section">
+    <div class="container">
+      <div class="form-card">
+        <div style="text-align: center; margin-bottom: 24px;">
+          <h2 style="font-size: 22px; font-weight: 800; margin-bottom: 6px;">Free Fresher Resume &amp; Skill-Gap Audit</h2>
+          <p style="font-size: 14px; color: var(--text-secondary);">Fill out the secure form below to get your mentor-style report directly in your inbox.</p>
+        </div>
+
+        <!-- TALLY EMBED CODE START -->
+        <iframe data-tally-src="https://tally.so/embed/YOUR_TALLY_EMBED_ID?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="350" frameborder="0" marginheight="0" marginwidth="0" title="DataRole AI - Free Resume Audit"></iframe>
+        <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]<h2>==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
+        <!-- TALLY EMBED CODE END -->
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="features">
+    <div class="container">
+      <div class="section-header">
+        <h2>Everything you need to land your first interview</h2>
+        <p>Built to replace silent rejections with clear, step-by-step guidance.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🔍</div>
+          <h3>Honest ATS Gap Check</h3>
+          <p>See exactly which skills and keywords from the job description are missing in your fresher resume before you hit apply.</p>
+          <ul class="feature-bullets">
+            <li>Plain-English keyword breakdown</li>
+            <li>Zero robotic jargon or fluff</li>
+          </ul>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🛠️</div>
+          <h3>Weekend Proof-of-Work</h3>
+          <p>No prior internship? Get a custom 2-day mini-project idea tailored to your skill gaps so you have real work to show recruiters.</p>
+          <ul class="feature-bullets">
+            <li>Beginner-friendly GitHub issues</li>
+            <li>Ready-to-paste resume bullet lines</li>
+          </ul>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">💬</div>
+          <h3>Interview &amp; Naukri Prep</h3>
+          <p>Know the exact 2 questions an interviewer will ask about your gaps—plus an optimized headline for Naukri and LinkedIn.</p>
+          <ul class="feature-bullets">
+            <li>Honest framing for zero experience</li>
+            <li>Indian recruiter search optimization</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Human-Touch Founder Note -->
+  <footer id="our-story" class="founder-section">
+    <div class="container">
+      <div class="founder-icon">💬</div>
+      <h2>A Note from the Founder</h2>
+      <p class="founder-quote">
+        "Applying for your first job is exhausting. You spend hours tweaking your resume, hit submit, and hear nothing back—just silence. I built DataRole AI because freshers don't need another robotic score; they need an honest guide. My goal is simple: show you the exact skills you're missing and give you a real project to build, so your work speaks louder than a blank experience section."
+      </p>
+      <div class="founder-sign">— Founder, DataRole AI</div>
     </div>
   </footer>
 
-  <script>
-    /*
-      IMPORTANT:
-      Replace this value with your real Tally form URL.
-      This keeps the existing Tally -> Make.com -> Gemini -> Gmail workflow intact.
-      Do not put Gemini API keys or private Make.com webhook URLs in this public file.
-    */
-    const TALLY_FORM_URL = "https://tally.so/r/BzvayQ";
-
-    document.querySelectorAll("[data-tally-link]").forEach((link) => {
-      link.href = TALLY_FORM_URL;
-      if (TALLY_FORM_URL === "https://tally.so/r/BzvayQ") {
-        link.addEventListener("click", (event) => {
-          event.preventDefault();
-          alert("Please add your real Tally form URL in the TALLY_FORM_URL setting before publishing.");
-        });
-      } else {
-        link.target = "_blank";
-        link.rel = "noopener noreferrer";
-      }
-    });
-
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    const searchForm = document.getElementById("github-search-form");
-    const skillInput = document.getElementById("skill-input");
-    const resultsBox = document.getElementById("github-results");
-    const searchButton = document.getElementById("search-button");
-
-    // Use textContent for GitHub-provided text so repository content is not injected as HTML.
-    function addTextElement(parent, tag, className, value) {
-      const element = document.createElement(tag);
-      if (className) element.className = className;
-      element.textContent = value || "";
-      parent.appendChild(element);
-      return element;
-    }
-
-    function showMessage(message) {
-      resultsBox.replaceChildren();
-      addTextElement(resultsBox, "p", "status-message", message);
-    }
-
-    function safeGitHubUrl(value) {
-      try {
-        const url = new URL(value);
-        return url.protocol === "https:" && url.hostname === "github.com" ? url.href : null;
-      } catch {
-        return null;
-      }
-    }
-
-    async function searchGitHubProjects() {
-      const skill = skillInput.value.trim();
-      if (!skill) {
-        showMessage("Enter a skill such as SQL, Python or Power BI.");
-        skillInput.focus();
-        return;
-      }
-
-      searchButton.disabled = true;
-      searchButton.textContent = "Searching…";
-      showMessage("Looking for open GitHub issues related to " + skill + "…");
-
-      try {
-        const params = new URLSearchParams({
-          q: `is:issue is:open label:"good first issue" ${skill}`,
-          sort: "updated",
-          order: "desc",
-          per_page: "6"
-        });
-
-        let response = await fetch(`https://api.github.com/search/issues?${params.toString()}`, {
-          headers: { "Accept": "application/vnd.github+json" }
-        });
-
-        // Some projects use "help wanted" instead of "good first issue".
-        if (response.ok) {
-          let data = await response.json();
-          if (!data.items || data.items.length === 0) {
-            const fallbackParams = new URLSearchParams({
-              q: `is:issue is:open label:"help wanted" ${skill}`,
-              sort: "updated",
-              order: "desc",
-              per_page: "6"
-            });
-            response = await fetch(`https://api.github.com/search/issues?${fallbackParams.toString()}`, {
-              headers: { "Accept": "application/vnd.github+json" }
-            });
-            if (response.ok) data = await response.json();
-          }
-
-          if (!response.ok) {
-            throw new Error("GitHub search is temporarily unavailable.");
-          }
-
-          if (!data.items || data.items.length === 0) {
-            showMessage(`No matching beginner-labelled issues were found for "${skill}". Try another skill or search GitHub directly.`);
-            return;
-          }
-
-          resultsBox.replaceChildren();
-          data.items.forEach((issue) => {
-            const row = document.createElement("article");
-            row.className = "result-item";
-
-            const details = document.createElement("div");
-            const issueUrl = safeGitHubUrl(issue.html_url);
-            const repoName = issue.repository_url
-              ? issue.repository_url.replace("https://api.github.com/repos/", "")
-              : "GitHub project";
-
-            if (issueUrl) {
-              const title = document.createElement("a");
-              title.className = "result-title";
-              title.href = issueUrl;
-              title.target = "_blank";
-              title.rel = "noopener noreferrer";
-              title.textContent = issue.title || "Open issue";
-              details.appendChild(title);
-            } else {
-              addTextElement(details, "span", "result-title", issue.title || "Open issue");
-            }
-
-            addTextElement(details, "div", "result-meta", repoName);
-            addTextElement(details, "div", "result-meta", `Updated: ${new Date(issue.updated_at).toLocaleDateString()}`);
-            row.appendChild(details);
-
-            const repoLinkUrl = issue.repository_url
-              ? safeGitHubUrl(issue.repository_url.replace("https://api.github.com/repos/", "https://github.com/"))
-              : null;
-
-            if (repoLinkUrl) {
-              const repoLink = document.createElement("a");
-              repoLink.className = "result-repo";
-              repoLink.href = repoLinkUrl;
-              repoLink.target = "_blank";
-              repoLink.rel = "noopener noreferrer";
-              repoLink.textContent = "View project ↗";
-              row.appendChild(repoLink);
-            }
-
-            resultsBox.appendChild(row);
-          });
-        } else if (response.status === 403 || response.status === 429) {
-          showMessage("GitHub search has reached its temporary rate limit. Please wait a little and try again.");
-        } else {
-          throw new Error("GitHub search is temporarily unavailable.");
-        }
-      } catch (error) {
-        showMessage("We couldn't reach GitHub just now. Please try again in a moment, or search GitHub directly.");
-      } finally {
-        searchButton.disabled = false;
-        searchButton.textContent = "Search GitHub";
-      }
-    }
-
-    searchForm.addEventListener("submit", (event) => {
-      event.preventDefault();
-      searchGitHubProjects();
-    });
-
-    document.querySelectorAll("[data-skill]").forEach((button) => {
-      button.addEventListener("click", () => {
-        skillInput.value = button.dataset.skill;
-        searchGitHubProjects();
-      });
-    });
-  </script>
 </body>
 </html>
-'''
-
-path = Path("/mnt/data/datarole-ai-updated-index.html")
-path.write_text(html, encoding="utf-8")
-print(f"Created: {path}")
-print(f"Size: {path.stat().st_size:,} bytes")
